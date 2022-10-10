@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Space_Invaders
 {
-    internal static class Data
+    internal static class Data // дата уровень
     {
         private static string playerName = String.Empty;
-        public static string PlayerName 
+        public static string PlayerName // свойство
         { 
             get 
             { 

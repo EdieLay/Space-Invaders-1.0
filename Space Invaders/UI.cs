@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Space_Invaders
 {
-    internal static class UI
+    internal static class UI // пользовательский уровень
     {
-        public static void ShowGameOver(TextBox gameOverText, string msg, int score, int enemiesLeft)
+        public static void ShowGameOver(TextBox gameOverText, string msg, int score, int enemiesLeft) // метод типа
         {
             msg += Environment.NewLine +
                 "Total score: " + score + Environment.NewLine +

@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace Space_Invaders
 {
-    enum EnemyType
+    enum EnemyType // перечисление
     {
         noob,
         rare,
@@ -21,7 +21,7 @@ namespace Space_Invaders
         public int sizeX;
         public int sizeY;
 
-        public SpaceShip(int x, int y, int sizeX, int sizeY)
+        public SpaceShip(int x, int y, int sizeX, int sizeY) // конструктор экземпляра
         {
             this.x = x;
             this.y = y;
@@ -29,7 +29,7 @@ namespace Space_Invaders
             this.sizeY = sizeY;
         }
 
-        public virtual void Move(int speed, int width) // виру
+        public virtual void Move(int speed, int width) // виртуальный метод
         {
             if (x + speed < width - sizeX)
                 x += speed;
@@ -54,7 +54,8 @@ namespace Space_Invaders
         public EnemyType tag;
         public Image enemyImg;
 
-        public Enemy(int x, int y, int sizeX, int sizeY, int hitPoints, int reward, EnemyType tag = EnemyType.noob) : base(x, y, sizeX, sizeY)
+        public Enemy(int x, int y, int sizeX, int sizeY, int hitPoints, int reward, EnemyType tag = EnemyType.noob) // параметр по-умолчанию
+            : base(x, y, sizeX, sizeY)
         {
             this.hitPoints = hitPoints;
             this.reward = reward;
@@ -66,7 +67,7 @@ namespace Space_Invaders
             else enemyImg = new Bitmap(Resource1.BossShip);
         }
 
-        public static void MakeEnemies(out Enemy[] enemies, int noobsAmount, int raresAmount, int bossesAmount)
+        public static void MakeEnemies(out Enemy[] enemies, int noobsAmount, int raresAmount, int bossesAmount) // параметр out
         {
             enemies = new Enemy[noobsAmount + raresAmount + bossesAmount];
             int positionX = 0;
@@ -90,7 +91,7 @@ namespace Space_Invaders
             }
         }
 
-        public override void Move(int speed, int width)
+        public override void Move(int speed, int width) // переопределение виртуального метода
         {
             x += speed;
             if (x >= width)
@@ -111,7 +112,7 @@ namespace Space_Invaders
             }
         }
 
-        public bool IsDeadAfterShot(ref int score, ref int enemiesLeft)
+        public bool IsDeadAfterShot(ref int score, ref int enemiesLeft) // метод экземпляра + параметры ref
         {
             hitPoints--;
             if (hitPoints < 1)
